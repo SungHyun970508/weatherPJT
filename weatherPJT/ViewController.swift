@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
    
     //MARK: - Properties
-    let cellIdentifier: String = "countryCell"//
+    let cellIdentifier: String = "countryCell"
+    let secondViewController = SecondViewController()
     var countries: [Country] = [] // contries 변수 선언
     var nextAssetName: String?
 
@@ -32,6 +33,7 @@ class ViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+        
     }
 
 }
@@ -56,27 +58,22 @@ extension ViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
-    //segue로 데이터 전달하기
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.\
-        guard let nextViewController: SecondViewController =
-            segue.destination as? SecondViewController else {
-            return
-        }
+}
+//navigation controller로 데이터 전달
+extension ViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController else { return }
         
-        guard let cell: UITableViewCell = sender as? UITableViewCell else {
-            return
-        }
-       
-        nextViewController.selectedCountry = cell.textLabel?.text
         if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
             let country: Country = self.countries[selectedIndex]
+            print(indexPath)
+            print(selectedIndex)
+            let cell: UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
             print(country.assetName)
-            nextViewController.assetName = country.assetName
+            secondViewController.assetName = country.assetName
+            secondViewController.selectedCountry = cell.textLabel?.text
         }
+        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
 }
 
