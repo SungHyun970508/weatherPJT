@@ -27,22 +27,12 @@ class ThirdViewController: UIViewController {
 
         tempLabel.text = temperatureText
         rainfallProbabilityLabel.text = rainfallProbabilityText
-       
-        switch self.state {
-        case 10:
-            stateLabel.text = "맑음"
-            imageURL = "sunny"
-        case 11:
-            stateLabel.text = "구름"
-            imageURL = "cloudy"
-        case 12:
-            stateLabel.text = "비"
-            imageURL = "rainy"
-        case 13:
-            stateLabel.text = "눈"
-            imageURL = "snowy"
-        default:
-            stateLabel.text = nil
+       //self.state 강제 언랩핑한 거 개선해보기
+        if let state = StateInformation.StateInforms(rawValue: self.state!) {
+            imageURL = state.imageURL
+            stateLabel.text = state.stateText
+        } else {
+            print("state is nil")
         }
         // Do any additional setup after loading the view.
         stateImageView.image = UIImage(named: imageURL!)
