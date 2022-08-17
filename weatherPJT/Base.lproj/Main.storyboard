@@ -65,9 +65,9 @@
         <!--Third View Controller-->
         <scene sceneID="7N4-GK-JS9">
             <objects>
-                <viewController id="hMT-Pk-TzT" customClass="ThirdViewController" customModule="weatherPJT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdViewController" id="hMT-Pk-TzT" customClass="ThirdViewController" customModule="weatherPJT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bcN-SF-8ti">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KYV-Vl-fSo">
@@ -78,22 +78,22 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9Rd-Eb-wMI">
-                                <rect key="frame" x="30" y="264" width="354" height="178"/>
+                                <rect key="frame" x="30" y="264" width="354" height="198"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwj-Rc-MKz">
-                                        <rect key="frame" x="155" y="0.0" width="44.5" height="56"/>
+                                        <rect key="frame" x="155" y="0.0" width="44.5" height="62.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snz-wO-NAu">
-                                        <rect key="frame" x="156.5" y="61" width="41.5" height="56"/>
+                                        <rect key="frame" x="156.5" y="67.5" width="41.5" height="63"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemCyanColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EQ-s2-Ram">
-                                        <rect key="frame" x="156.5" y="122" width="41.5" height="56"/>
+                                        <rect key="frame" x="156.5" y="135.5" width="41.5" height="62.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -191,12 +191,12 @@
                                             <outlet property="cityTemp" destination="Cew-0i-KR7" id="WC1-vZ-yiY"/>
                                             <outlet property="rainPercent" destination="JxM-MZ-YHX" id="ZEQ-SW-rV3"/>
                                             <outlet property="weatherImg" destination="AL0-5v-djI" id="Hg0-2u-jbE"/>
-                                            <segue destination="hMT-Pk-TzT" kind="show" id="qTk-Yb-Ehc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="wxa-a2-YIx" id="2Kp-MJ-YgF"/>
+                                    <outlet property="delegate" destination="wxa-a2-YIx" id="DRz-FX-SGq"/>
                                 </connections>
                             </tableView>
                         </subviews>

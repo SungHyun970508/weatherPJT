@@ -62,14 +62,14 @@ extension ViewController: UITableViewDataSource {
 //navigation controller로 데이터 전달
 extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         guard let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController else { return }
         
         if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
+            
             let country: Country = self.countries[selectedIndex]
-            print(indexPath)
-            print(selectedIndex)
             let cell: UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
-            print(country.assetName)
+           
             secondViewController.assetName = country.assetName
             secondViewController.selectedCountry = cell.textLabel?.text
         }

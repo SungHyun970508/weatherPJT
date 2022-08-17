@@ -85,29 +85,27 @@ extension SecondViewController: UITableViewDataSource { // 인터페이스 빌�
         
         return cell
     }
+}
+
+//navigationcontroller로 화면전달 및 데이터 전달
+extension SecondViewController: UITableViewDelegate {
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let thirdViewController = self.storyboard?.instantiateViewController(withIdentifier: "ThirdViewController") as? ThirdViewController else { return }
         
-        guard let nextViewController: ThirdViewController =
-            segue.destination as? ThirdViewController else {
-            return
-        }
-        
-        guard let cell: CityCustomCell = sender as? CityCustomCell else {
-            return
-        }
-        if let selectedCellIndex = tableView.indexPathForSelectedRow?.row {
+        if let selectedCellIndex = self.tableView.indexPathForSelectedRow?.row{
             let weather: WeatherInfo = self.weathers[selectedCellIndex]
-            nextViewController.state = weather.state
+            thirdViewController.state = weather.state
         }
-        nextViewController.backBtnTitle = self.selectedCountry
-        nextViewController.navigationTitle = cell.cityName?.text
-        nextViewController.temperatureText = cell.cityTemp?.text
-        nextViewController.rainfallProbabilityText = cell.rainPercent?.text
+        
+        let cell: CityCustomCell = self.tableView(tableView, cellForRowAt: indexPath) as! CityCustomCell
+        
+        thirdViewController.backBtnTitle = self.selectedCountry
+        thirdViewController.navigationTitle = cell.cityName?.text
+        thirdViewController.temperatureText = cell.cityTemp?.text
+        thirdViewController.rainfallProbabilityText = cell.rainPercent?.text
+        
+        self.navigationController?.pushViewController(thirdViewController, animated: true)
     }
     
 }
-
-
