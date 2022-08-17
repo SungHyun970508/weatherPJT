@@ -10,11 +10,9 @@ import UIKit
 class ThirdViewController: UIViewController {
     //MARK: - Properties
     var backBtnTitle: String?
-    var navigationTitle: String?
     var state: Int?
-    var temperatureText: String?
-    var rainfallProbabilityText: String?
     var imageURL: String?
+    var countryWeather: CountryWeatherModel?
     
     //MARK: - IBOutlet
     @IBOutlet weak var tempLabel: UILabel!
@@ -24,9 +22,9 @@ class ThirdViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tempLabel.text = temperatureText
-        rainfallProbabilityLabel.text = rainfallProbabilityText
+        
+        tempLabel.text = countryWeather?.cityTemp
+        rainfallProbabilityLabel.text = countryWeather?.rainfallProbability
        //self.state 강제 언랩핑한 거 개선해보기
         if let state = StateInformation.StateInforms(rawValue: self.state!) {
             imageURL = state.imageURL
@@ -36,15 +34,13 @@ class ThirdViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
         stateImageView.image = UIImage(named: imageURL!)
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         //내비게이션 탭 바 타이틀 변경
-        self.navigationItem.title = navigationTitle
+        self.navigationItem.title = countryWeather?.cityName
         self.navigationItem.backButtonTitle = backBtnTitle
         
     }

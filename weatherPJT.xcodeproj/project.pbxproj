@@ -19,6 +19,7 @@
 		4861373228921CD300335BA9 /* CityCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861373128921CD300335BA9 /* CityCustomCell.swift */; };
 		48613734289254B600335BA9 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48613733289254B600335BA9 /* ThirdViewController.swift */; };
 		48637B6F28A4E19F00674852 /* StateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48637B6E28A4E19F00674852 /* StateInfo.swift */; };
+		48637B7128ACA35E00674852 /* CountryWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48637B7028ACA35E00674852 /* CountryWeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4861373128921CD300335BA9 /* CityCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCustomCell.swift; sourceTree = "<group>"; };
 		48613733289254B600335BA9 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		48637B6E28A4E19F00674852 /* StateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateInfo.swift; sourceTree = "<group>"; };
+		48637B7028ACA35E00674852 /* CountryWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryWeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				4861371B289116E100335BA9 /* Main.storyboard */,
 				4861373128921CD300335BA9 /* CityCustomCell.swift */,
 				4861372B2891196A00335BA9 /* SecondViewController.swift */,
+				48637B7028ACA35E00674852 /* CountryWeatherModel.swift */,
 				48613733289254B600335BA9 /* ThirdViewController.swift */,
 				4861371E289116E100335BA9 /* Assets.xcassets */,
 				48613720289116E100335BA9 /* LaunchScreen.storyboard */,
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4861372A289117AC00335BA9 /* Country.swift in Sources */,
+				48637B7128ACA35E00674852 /* CountryWeatherModel.swift in Sources */,
 				4861372E2891218A00335BA9 /* WeatherInfo.swift in Sources */,
 				4861371A289116E100335BA9 /* ViewController.swift in Sources */,
 				48613716289116E100335BA9 /* AppDelegate.swift in Sources */,

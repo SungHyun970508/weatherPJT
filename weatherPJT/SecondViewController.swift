@@ -18,6 +18,7 @@ class SecondViewController: UIViewController {
     var assetName: String?
     var weatherImgURL: String?
     var states: [StateInformation] = []
+    var countryWeatherModel: CountryWeatherModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +88,7 @@ extension SecondViewController: UITableViewDataSource { // 인터페이스 빌�
     }
 }
 
-//navigationcontroller로 화면전달 및 데이터 전달
+//MARK: - navigationcontroller로 화면전달 및 데이터 전달
 extension SecondViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -100,11 +101,11 @@ extension SecondViewController: UITableViewDelegate {
         
         let cell: CityCustomCell = self.tableView(tableView, cellForRowAt: indexPath) as! CityCustomCell
         
-        thirdViewController.backBtnTitle = self.selectedCountry
-        thirdViewController.navigationTitle = cell.cityName?.text
-        thirdViewController.temperatureText = cell.cityTemp?.text
-        thirdViewController.rainfallProbabilityText = cell.rainPercent?.text
+        countryWeatherModel = CountryWeatherModel(cityName: cell.cityName.text, cityTemp: cell.cityTemp.text, rainfallProbability: cell.rainPercent.text)//변수 선언 후 생성해주기!!!!!!
         
+        thirdViewController.backBtnTitle = self.selectedCountry
+        thirdViewController.countryWeather = countryWeatherModel//모델객체로 넘겨주기
+
         self.navigationController?.pushViewController(thirdViewController, animated: true)
     }
     
