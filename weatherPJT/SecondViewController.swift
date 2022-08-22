@@ -22,20 +22,17 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(assetName)
+        
         // Do any additional setup after loading the view.
         
         let jsonDecoder: JSONDecoder = JSONDecoder()
         
         guard let dataAsset: NSDataAsset = NSDataAsset(name: assetName!) else {
-            print("인코딩에러")
             return
         }
-        
         do{
             self.weathers = try jsonDecoder.decode([WeatherInfo].self, from: dataAsset.data)
         } catch {
-            print("인코딩에러")
             print(error.localizedDescription)
         }
     }
@@ -81,7 +78,6 @@ extension SecondViewController: UITableViewDataSource { // 인터페이스 빌�
             print("state is nil")
         }
        
-        
         cell.weatherImg?.image = UIImage(named: weatherImgURL!)
         
         return cell
